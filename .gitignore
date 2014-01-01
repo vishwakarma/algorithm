@@ -1,0 +1,10 @@
+*.iml
+*.orig
+*.rej
+.DS_STORE
+*.idea
+stacktrace.log
+.project
+*.ipr
+*.iws
+*.class

@@ -1,7 +1,7 @@
 package algorithm;
 
-import algorithm.binarytree.BinaryTree;
-import algorithm.binarytree.RandomizedBinarySearchTree;
+import algorithm.datastructure.binarytree.BinaryTree;
+import algorithm.datastructure.binarytree.RandomizedBinarySearchTree;
 import junit.framework.TestCase;
 import org.junit.Assert;
 
@@ -28,7 +28,7 @@ public class RandomizedBinarySearchTreeTest extends TestCase {
         }
 
         for(Integer integer : numbers){
-            Integer found = (Integer) bst.findElement(integer);
+            Integer found = (Integer) bst.findElement(integer).getKey();
             Assert.assertEquals(integer, found);
         }
     }
@@ -46,7 +46,7 @@ public class RandomizedBinarySearchTreeTest extends TestCase {
 
         for(Integer integer : numbers){
             bst.remove(integer);
-            Integer found = (Integer) bst.findElement(integer);
+            Integer found = (Integer) bst.findElement(integer).getKey();
             Assert.assertEquals(null, found);
         }
     }

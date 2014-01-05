@@ -1,15 +1,13 @@
-package main.java.variousbinarysearchtree.randomizedBST;
-
-import main.java.variousbinarysearchtree.BinarySearchTree;
+package algorithm.binarytree;
 
 /**
  * User: gopi.vishwakarma
  * Date: 04/01/14
  */
-public class RandomizedBinarySearchTree implements BinarySearchTree{
+public class RandomizedBinarySearchTree implements BinaryTree {
 
-    private Node root;
-    private static Node dummyNode;
+    private TreapNode root;
+    private static TreapNode dummyNode;
 
     public RandomizedBinarySearchTree() {
         root = getDummyNode();
@@ -30,9 +28,9 @@ public class RandomizedBinarySearchTree implements BinarySearchTree{
      * @param root
      * @return the new root
      */
-    private Node insert(Comparable element, Node root) {
+    private TreapNode insert(Comparable element, TreapNode root) {
         if(root == getDummyNode()){
-            root =  new Node(element, getDummyNode(), getDummyNode());
+            root =  new TreapNode(element, getDummyNode(), getDummyNode());
         }
         else{
             if(element.compareTo(root.getKey()) < 0){
@@ -56,17 +54,17 @@ public class RandomizedBinarySearchTree implements BinarySearchTree{
         return root;
     }
 
-    private Node rotateWithRightChild(Node root) {
+    private TreapNode rotateWithRightChild(TreapNode root) {
 
-        Node right = root.getRight();
+        TreapNode right = root.getRight();
         root.setRight(right.getLeft());
         right.setLeft(root);
 
         return right;
     }
 
-    private Node rotateWithLeftChild(Node root) {
-        Node left = root.getLeft();
+    private TreapNode rotateWithLeftChild(TreapNode root) {
+        TreapNode left = root.getLeft();
         root.setLeft(left.getRight());
         left.setRight(root);
 
@@ -86,7 +84,7 @@ public class RandomizedBinarySearchTree implements BinarySearchTree{
     /**
      * Internal method to remove from a subtree.
      */
-    private Node remove(Comparable element, Node root) {
+    private TreapNode remove(Comparable element, TreapNode root) {
         if(root != getDummyNode()){
             if(element.compareTo(root.getKey()) < 0){
                 root.setLeft(remove(element, root.getLeft()));
@@ -123,7 +121,7 @@ public class RandomizedBinarySearchTree implements BinarySearchTree{
             return null;
         }
 
-        Node node = root;
+        TreapNode node = root;
 
         while( node.getLeft() != getDummyNode() )
             node = node.getLeft();
@@ -140,7 +138,7 @@ public class RandomizedBinarySearchTree implements BinarySearchTree{
         if(isEmpty())
             return null;
 
-        Node node = root;
+        TreapNode node = root;
 
         while( node.getRight() != getDummyNode() )
             node = node.getRight();
@@ -158,7 +156,7 @@ public class RandomizedBinarySearchTree implements BinarySearchTree{
         return findElement(elementToSearch, root);
     }
 
-    private Comparable findElement(Comparable elementToSearch, Node root) {
+    private Comparable findElement(Comparable elementToSearch, TreapNode root) {
 
         if(elementToSearch != null){
             if(root != dummyNode){
@@ -199,7 +197,7 @@ public class RandomizedBinarySearchTree implements BinarySearchTree{
      * Internal method to print a subtree in sorted order.
      * @param root the node that roots the tree.
      */
-    private void printTree( Node root )
+    private void printTree( TreapNode root )
     {
         if(root != dummyNode ){
             printTree( root.getLeft() );
@@ -207,12 +205,12 @@ public class RandomizedBinarySearchTree implements BinarySearchTree{
             printTree( root.getRight() );
         }
     }
-    private Node getDummyNode() {
+    private TreapNode getDummyNode() {
         return dummyNode;
     }
 
     static {
-        dummyNode = new Node(null);
+        dummyNode = new TreapNode(null);
         dummyNode.setLeft(dummyNode);
         dummyNode.setRight(dummyNode);
     }

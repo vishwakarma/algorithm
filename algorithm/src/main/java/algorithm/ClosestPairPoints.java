@@ -1,11 +1,14 @@
-package main.java;
+package algorithm;
 
 /**
  * User: gopi.vishwakarma
  * Date: 02/01/14
  */
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * We are given an array of n points in the plane, and the problem is to find out the closest pair of points in the array

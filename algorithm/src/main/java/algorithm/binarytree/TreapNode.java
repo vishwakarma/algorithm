@@ -1,4 +1,4 @@
-package main.java.variousbinarysearchtree.randomizedBST;
+package algorithm.binarytree;
 
 /**
  * User: gopi.vishwakarma
@@ -11,20 +11,20 @@ import java.util.Random;
  * Domain class of Treap Node
  * @param <T>
  */
-public class Node <T extends Comparable> {
+public class TreapNode<T extends Comparable> {
 
     private T key;
     private Long priority;
 
-    private Node left;
-    private Node right;
+    private TreapNode left;
+    private TreapNode right;
 
-    public Node(T key) {
+    public TreapNode(T key) {
         this.key = key;
         priority = Long.MAX_VALUE;
     }
 
-    public Node(T key, Node left, Node right) {
+    public TreapNode(T key, TreapNode left, TreapNode right) {
         Random random = new Random();
 
         this.key = key;
@@ -41,20 +41,20 @@ public class Node <T extends Comparable> {
         return priority;
     }
 
-    public Node getLeft() {
+    public TreapNode getLeft() {
         return left;
     }
 
-    public Node getRight() {
+    public TreapNode getRight() {
         return right;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Node)) return false;
+        if (!(o instanceof TreapNode)) return false;
 
-        Node node = (Node) o;
+        TreapNode node = (TreapNode) o;
 
         if (key != null ? !key.equals(node.key) : node.key != null) return false;
         if (left != null ? !left.equals(node.left) : node.left != null) return false;
@@ -73,11 +73,11 @@ public class Node <T extends Comparable> {
         return result;
     }
 
-    public void setLeft(Node left) {
+    public void setLeft(TreapNode left) {
         this.left = left;
     }
 
-    public void setRight(Node right) {
+    public void setRight(TreapNode right) {
         this.right = right;
     }
 

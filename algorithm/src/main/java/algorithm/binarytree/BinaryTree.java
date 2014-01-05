@@ -1,4 +1,4 @@
-package main.java.variousbinarysearchtree;
+package algorithm.binarytree;
 
 /**
  * User: gopi.vishwakarma
@@ -8,7 +8,7 @@ package main.java.variousbinarysearchtree;
 /**
  * BST API
  */
-public interface BinarySearchTree {
+public interface BinaryTree {
     /**
      * Insert into the tree.
      * @param element the item to insert.

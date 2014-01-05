@@ -1,4 +1,4 @@
-package main.java;
+package algorithm;
 
 /**
  * User: gopi.vishwakarma

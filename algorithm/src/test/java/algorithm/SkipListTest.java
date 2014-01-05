@@ -37,8 +37,11 @@ public class SkipListTest extends TestCase{
 
         Random random = new Random();
         Collection<Integer> numbers = new LinkedList<Integer>();
-        for(int i=0;i<5;i++){
-            int x = random.nextInt(100); //insertion
+        for(int i=0;i<100;i++){
+            int x = random.nextInt(1000); //insertion
+            while(numbers.contains(x)){
+                x = random.nextInt(1000);
+            }
             numbers.add(x);
             skipList.insert(x);
         }
